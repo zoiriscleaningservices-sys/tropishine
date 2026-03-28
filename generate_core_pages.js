@@ -254,8 +254,8 @@ const pages = [
                             <div class="w-14 h-14 bg-sky-500/20 rounded-2xl flex items-center justify-center mb-6 border border-sky-400/30">
                                 <i data-lucide="target" class="w-7 h-7 text-sky-400"></i>
                             </div>
-                            <h3 class="text-3xl font-black text-white mb-4">\${spintax.about.missionTitle[getRandomInt(spintax.about.missionTitle.length)]}</h3>
-                            <p class="text-zinc-300 leading-relaxed text-lg">\${spintax.about.missionDesc[getRandomInt(spintax.about.missionDesc.length)]}</p>
+                            <h3 class="text-3xl font-black text-white mb-4">${spintax.about.missionTitle[getRandomInt(spintax.about.missionTitle.length)]}</h3>
+                            <p class="text-zinc-300 leading-relaxed text-lg">${spintax.about.missionDesc[getRandomInt(spintax.about.missionDesc.length)]}</p>
                         </div>
                         
                         <!-- Value 1 -->
@@ -285,8 +285,8 @@ const pages = [
                                 <div class="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center mb-6 border border-white/30 backdrop-blur-sm">
                                     <i data-lucide="eye" class="w-7 h-7 text-white"></i>
                                 </div>
-                                <h3 class="text-3xl font-black mb-4">\${spintax.about.visionTitle[getRandomInt(spintax.about.visionTitle.length)]}</h3>
-                                <p class="text-sky-50 leading-relaxed text-lg">\${spintax.about.visionDesc[getRandomInt(spintax.about.visionDesc.length)]}</p>
+                                <h3 class="text-3xl font-black mb-4">${spintax.about.visionTitle[getRandomInt(spintax.about.visionTitle.length)]}</h3>
+                                <p class="text-sky-50 leading-relaxed text-lg">${spintax.about.visionDesc[getRandomInt(spintax.about.visionDesc.length)]}</p>
                             </div>
                         </div>
                     </div>
