@@ -128,9 +128,9 @@ for (const location of locations) {
     locCStr = locCStr.replace(/src="\.\.\/\$\{post\.img\}"/g, 'src="../../${post.img}"');
 
     // Title and Meta localized injection
-    locCStr = locCStr.replace(/<title>\$\{page\.title\} - Tropishine Cleaning<\/title>/, `<title>\\$\\{page.title\\} ${location.name} - Tropishine Cleaning</title>`);
-    locCStr = locCStr.replace(/content="\$\{page\.desc\}"/, `content="\\$\\{page.desc\\} ${location.name}."`);
-    locCStr = locCStr.replace(/<link rel="canonical" href="https:\/\/www\.tropishinecleaning\.com\/\$\{page\.slug\}\/" \/>/, `<link rel="canonical" href="https://www.tropishinecleaning.com/${location.slug}/\\$\\{page.slug\\}/" />`);
+    locCStr = locCStr.replace(/<title>\$\{page\.title\} - Tropishine Cleaning<\/title>/, `<title>\${page.title} ${location.name} - Tropishine Cleaning</title>`);
+    locCStr = locCStr.replace(/content="\$\{page\.desc\}"/, `content="\${page.desc} ${location.name}."`);
+    locCStr = locCStr.replace(/<link rel="canonical" href="https:\/\/www\.tropishinecleaning\.com\/\$\{page\.slug\}\/" \/>/, `<link rel="canonical" href="https://www.tropishinecleaning.com/${location.slug}/\${page.slug}/" />`);
 
     const tempCorePath = path.join(rootDir, `generate_core_${location.slug}.js`);
     fs.writeFileSync(tempCorePath, locCStr);
