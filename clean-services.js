@@ -43,7 +43,7 @@ let deletedCount = 0;
 
 for (const slug of allParsed) {
     // If it's a parsed slug that is NOT a true location, then it's a buggy generated folder!
-    if (!trueLocations.has(slug)) {
+    if (!trueLocations.has(slug) && !slug.endsWith('-deerfield-beach')) {
         const badFolder = path.join(rootDir, slug);
         if (fs.existsSync(badFolder) && fs.lstatSync(badFolder).isDirectory()) {
             console.log(`Deleting accidental silo: ${slug}`);
