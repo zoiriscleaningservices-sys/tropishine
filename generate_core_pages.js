@@ -155,7 +155,7 @@ function buildV3Hero(badge, titleHtml, desc, img, phrases = ["Flawless Execution
 
     return `
             <!-- V3 Hero -->
-            <section class="relative pt-32 pb-24 md:pt-48 md:pb-36 overflow-hidden bg-zinc-950 min-h-[75vh] flex items-center">
+            <section class="relative pt-8 md:pt-32 pb-24 md:pt-48 md:pb-36 overflow-hidden bg-zinc-950 min-h-[75vh] flex items-center">
 
                 <!-- Background Image with Parallax and Parallax -->
                 <div class="absolute inset-0 z-0" data-aos="zoom-out" data-aos-duration="2500">
@@ -238,7 +238,7 @@ const pages = [
                 ["Unmatched Quality", "Trusted Partnerships", "Our Core Values", "Community Focus"]
             ) + `
             <!-- Mission/Values Bento Grid -->
-            <section id="explore" class="py-24 bg-slate-50 relative overflow-hidden">
+            <section id="explore" class="py-6 md:py-24 bg-slate-50 relative overflow-hidden">
                 <div class="absolute top-20 right-[-5%] w-64 h-64 bg-sky-200/40 rounded-full blur-3xl animate-float-rotate pointer-events-none" style="animation-duration: 20s;"></div>
                 <div class="absolute bottom-40 left-[-5%] w-96 h-96 bg-emerald-200/30 rounded-full blur-[80px] animate-float-rotate pointer-events-none" style="animation-duration: 25s; animation-delay: -5s;"></div>
 
@@ -333,7 +333,7 @@ const pages = [
                 ["Stunning Results", "Impeccable Details", "Spotless Spaces", "Premium Finishes"]
             ) + `
             <!-- 3D Masonry Grid -->
-            <section id="explore" class="py-24 bg-slate-50 relative overflow-hidden">
+            <section id="explore" class="py-6 md:py-24 bg-slate-50 relative overflow-hidden">
                 <div class="absolute top-20 right-[-5%] w-64 h-64 bg-sky-200/40 rounded-full blur-3xl animate-float-rotate pointer-events-none" style="animation-duration: 20s;"></div>
                 <div class="absolute bottom-40 left-[-5%] w-96 h-96 bg-indigo-200/30 rounded-full blur-[80px] animate-float-rotate pointer-events-none" style="animation-duration: 25s; animation-delay: -5s;"></div>
 
@@ -390,7 +390,7 @@ const pages = [
                 ["Expert Advice", "Industry Insights", "Cleaning Hacks", "Healthy Homes"]
             ) + `
             <!-- Blog Post Grid -->
-            <section id="explore" class="py-24 bg-slate-50 relative overflow-hidden">
+            <section id="explore" class="py-6 md:py-24 bg-slate-50 relative overflow-hidden">
                 <div class="absolute top-20 right-[-5%] w-64 h-64 bg-sky-200/40 rounded-full blur-3xl animate-float-rotate pointer-events-none" style="animation-duration: 20s;"></div>
                 <div class="absolute bottom-40 left-[-5%] w-96 h-96 bg-emerald-200/30 rounded-full blur-[80px] animate-float-rotate pointer-events-none" style="animation-duration: 25s; animation-delay: -5s;"></div>
 

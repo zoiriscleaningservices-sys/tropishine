@@ -261,7 +261,7 @@ services.forEach(service => {
 
     const bodyContent = `
     <!-- MAIN CONTENT MODULE -->
-    <section class="py-24 bg-white relative overflow-hidden">
+    <section class="py-6 md:py-24 bg-white relative overflow-hidden">
         <!-- Abstract decorations -->
         <div class="absolute top-0 right-0 w-64 h-64 bg-sky-50 rounded-full mix-blend-multiply filter blur-3xl opacity-70 -translate-y-1/2 translate-x-1/2"></div>
         
@@ -278,7 +278,7 @@ services.forEach(service => {
             </div>
 
             <!-- Enhanced Process Timeline -->
-            <div class="mt-20">
+            <div class="mt-4 md:mt-20">
                 <h3 class="text-3xl font-bold text-center mb-12 font-heading">Our Hillsboro Beach Process</h3>
                 <div class="relative border-l-4 border-sky-100 ml-6 md:ml-0 md:border-l-0 md:border-t-4 md:flex md:justify-between pt-10 md:pt-0">
                     
@@ -304,7 +304,7 @@ services.forEach(service => {
             </div>
 
             <!-- CTA Block -->
-            <div class="mt-20 bg-gradient-to-br from-sky-900 to-blue-900 rounded-3xl p-10 text-center shadow-2xl relative overflow-hidden" data-aos="zoom-in" data-vanilla-tilt>
+            <div class="mt-4 md:mt-20 bg-gradient-to-br from-sky-900 to-blue-900 rounded-3xl p-10 text-center shadow-2xl relative overflow-hidden" data-aos="zoom-in" data-vanilla-tilt>
                 <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSIvPjwvc3ZnPg==')] opacity-30"></div>
                 <div class="relative z-10">
                     <h3 class="text-3xl md:text-4xl font-bold text-white mb-4">${service.title} Done Right.</h3>
@@ -445,7 +445,7 @@ console.log('All Hillsboro Beach Silo pages generated successfully!');
 function getCoreContent(slug) {
     if (slug === 'about-us') {
         return `
-        <div class="pt-32 pb-20 bg-gradient-to-b from-sky-50 to-white relative overflow-hidden">
+        <div class="pt-8 md:pt-32 pb-2 md:pb-20 bg-gradient-to-b from-sky-50 to-white relative overflow-hidden">
             <div class="max-w-7xl mx-auto px-6 relative z-10">
                 <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
                     <h1 class="text-5xl font-bold text-zinc-900 mb-6 font-heading">About Tropishine <span class="text-sky-500">Hillsboro Beach</span></h1>
@@ -474,7 +474,7 @@ function getCoreContent(slug) {
         `;
     } else if (slug === 'gallery') {
         return `
-        <div class="pt-32 pb-20 bg-zinc-50 relative overflow-hidden">
+        <div class="pt-8 md:pt-32 pb-2 md:pb-20 bg-zinc-50 relative overflow-hidden">
             <div class="max-w-7xl mx-auto px-6 relative z-10">
                 <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
                     <h1 class="text-5xl font-bold text-zinc-900 mb-6 font-heading">Our <span class="text-sky-500">Hillsboro Beach</span> Gallery</h1>
@@ -493,7 +493,7 @@ function getCoreContent(slug) {
         `;
     } else if (slug === 'blog') {
         return `
-        <div class="pt-32 pb-20 bg-white relative overflow-hidden">
+        <div class="pt-8 md:pt-32 pb-2 md:pb-20 bg-white relative overflow-hidden">
             <div class="max-w-7xl mx-auto px-6 relative z-10">
                 <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
                     <h1 class="text-5xl font-bold text-zinc-900 mb-6 font-heading">Tropishine <span class="text-sky-500">Insights</span></h1>

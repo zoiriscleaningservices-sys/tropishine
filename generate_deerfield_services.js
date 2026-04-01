@@ -254,7 +254,7 @@ services.forEach(service => {
             animation: marquee 40s linear infinite;
         }
     </style>
-    <section class="relative pt-32 pb-24 md:pt-48 md:pb-36 overflow-hidden bg-zinc-950 min-h-[75vh] flex items-center">
+    <section class="relative pt-8 md:pt-32 pb-24 md:pt-48 md:pb-36 overflow-hidden bg-zinc-950 min-h-[75vh] flex items-center">
 
         <!-- Background Image with Parallax and Zoom -->
         <div class="absolute inset-0 z-0" data-aos="zoom-out" data-aos-duration="2500">
@@ -323,7 +323,7 @@ services.forEach(service => {
 
     const bodyContent = `
     <!-- Details Section -->
-    <section id="details" class="py-24 md:py-32 bg-slate-50 relative overflow-hidden">
+    <section id="details" class="py-6 md:py-24 md:py-32 bg-slate-50 relative overflow-hidden">
         <!-- Floating Background Elements for Details -->
         <div class="absolute top-20 right-[-5%] w-64 h-64 bg-sky-200/40 rounded-full blur-3xl animate-float-rotate pointer-events-none" style="animation-duration: 20s;"></div>
         <div class="absolute bottom-40 left-[-5%] w-96 h-96 bg-indigo-200/30 rounded-full blur-[80px] animate-float-rotate pointer-events-none" style="animation-duration: 25s; animation-delay: -5s;"></div>
@@ -331,7 +331,7 @@ services.forEach(service => {
         <div class="max-w-6xl mx-auto px-6 relative z-10">
             
             <!-- SEO Text Header -->
-            <div class="text-center max-w-3xl mx-auto mb-20" data-aos="fade-up">
+            <div class="text-center max-w-3xl mx-auto mb-4 md:mb-20" data-aos="fade-up">
                 <h2 class="text-4xl md:text-5xl font-black text-zinc-900 mb-6">${service.title} in Deerfield Beach</h2>
                 <div class="w-24 h-1 bg-sky-500 mx-auto rounded-full mb-8"></div>
                 <p class="text-xl text-zinc-600 leading-relaxed font-medium">${intro}</p>
