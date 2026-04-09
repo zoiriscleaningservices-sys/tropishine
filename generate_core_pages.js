@@ -292,6 +292,17 @@ const pages = [
                     </div>
                 </div>
             </section>
+
+            <!-- Dynamic Local SEO Google Map -->
+            <div class="mt-24 max-w-5xl mx-auto pb-24 px-6" data-aos="fade-up">
+                <div class="text-center mb-10">
+                    <h3 class="text-3xl md:text-4xl font-black text-zinc-900 mb-4">Service Area: Boca Raton</h3>
+                    <p class="text-zinc-500 font-medium">Providing premium cleaning services throughout Boca Raton and the surrounding regions.</p>
+                </div>
+                <div class="w-full h-[400px] rounded-3xl overflow-hidden shadow-2xl shadow-sky-900/10 border border-slate-200 relative z-10">
+                    <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=Boca Raton, FL&t=&z=12&ie=UTF8&iwloc=&output=embed" loading="lazy"></iframe>
+                </div>
+            </div>
             `;
         }
     },
@@ -422,6 +433,29 @@ pages.forEach(page => {
     
     // Inject Custom CSS
     pageHtml = pageHtml.replace('</head>', baseStyles + '</head>');
+    
+    // Inject LocalBusiness Schema
+    const localBusinessSchema = {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": `${page.title} - Tropishine Cleaning`,
+        "image": `https://www.tropishinecleaning.com/${page.heroImg}`,
+        "@id": `https://www.tropishinecleaning.com/#${page.slug}`,
+        "url": "https://www.tropishinecleaning.com/",
+        "telephone": "9545300508",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Boca Raton",
+            "addressRegion": "FL",
+            "addressCountry": "US"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "128"
+        }
+    };
+    pageHtml = pageHtml.replace('</head>', `\n    <script type="application/ld+json">\n        ${JSON.stringify(localBusinessSchema)}\n    </script>\n    </head>`);
     
     // Fix SEO Tags
     pageHtml = pageHtml.replace(/<title>.*?<\/title>/s, `<title>${page.title} - Tropishine Cleaning</title>`);

@@ -81,6 +81,8 @@ let siloCount = 0;
 
 // 3. Dynamic Mass Location Silos
 locations.forEach(location => {
+    if (location === 'deerfield-beach') return;
+
     // Location Hub
     xml += `  <url>\n    <loc>${domain}/${location}/</loc>\n    <lastmod>${today}</lastmod>\n    <priority>1.0</priority>\n  </url>\n`;
     siloCount++;

@@ -144,6 +144,27 @@ services.forEach(service => {
         }))
     };
 
+    const localBusinessSchema = {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": `${service.title} - Tropishine Cleaning`,
+        "image": `https://www.tropishinecleaning.com/${service.img}`,
+        "@id": `https://www.tropishinecleaning.com/#${service.id}`,
+        "url": "https://www.tropishinecleaning.com/",
+        "telephone": "9545300508",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Hillsboro Beach",
+            "addressRegion": "FL",
+            "addressCountry": "US"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "128"
+        }
+    };
+
     // Build the custom Hero Section
     const heroContent = `
     <style>
@@ -377,12 +398,26 @@ services.forEach(service => {
                 </div>
             </div>
 
+            <!-- Dynamic Local SEO Google Map -->
+            <div class="mt-24 max-w-5xl mx-auto" data-aos="fade-up">
+                <div class="text-center mb-10">
+                    <h3 class="text-3xl md:text-4xl font-black text-zinc-900 mb-4">Service Area: Hillsboro Beach</h3>
+                    <p class="text-zinc-500 font-medium">Proudly delivering premium ${service.title} throughout Hillsboro Beach and surrounding neighborhoods.</p>
+                </div>
+                <div class="w-full h-[400px] rounded-3xl overflow-hidden shadow-2xl shadow-sky-900/10 border border-slate-200 relative z-10">
+                    <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=Hillsboro Beach, FL&t=&z=13&ie=UTF8&iwloc=&output=embed" loading="lazy"></iframe>
+                </div>
+            </div>
+
         </div>
     </section>
     
     <!-- Include Schema and Local FAQ JS handling -->
     <script type="application/ld+json">
-        ${JSON.stringify(faqSchema)}
+        [
+            ${JSON.stringify(faqSchema)},
+            ${JSON.stringify(localBusinessSchema)}
+        ]
     <\\/script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {

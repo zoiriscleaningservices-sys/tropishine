@@ -1,0 +1,470 @@
+[
+  {
+    "slug": "coconut-creek",
+    "name": "Coconut Creek",
+    "lat": 26.2517482,
+    "lon": -80.1789351
+  },
+  {
+    "slug": "cooper-city",
+    "name": "Cooper City",
+    "lat": 26.057783,
+    "lon": -80.2695109
+  },
+  {
+    "slug": "coral-springs",
+    "name": "Coral Springs",
+    "lat": 26.271192,
+    "lon": -80.2706044
+  },
+  {
+    "slug": "dania-beach",
+    "name": "Dania Beach",
+    "lat": 26.0524224,
+    "lon": -80.143929
+  },
+  {
+    "slug": "davie",
+    "name": "Davie",
+    "lat": 26.0628665,
+    "lon": -80.2331038
+  },
+  {
+    "slug": "boca-raton",
+    "name": "Boca Raton",
+    "lat": 26.3586885,
+    "lon": -80.0830984
+  },
+  {
+    "slug": "fort-lauderdale",
+    "name": "Fort Lauderdale",
+    "lat": 26.1223084,
+    "lon": -80.1433786
+  },
+  {
+    "slug": "hallandale-beach",
+    "name": "Hallandale Beach",
+    "lat": 25.9812025,
+    "lon": -80.148379
+  },
+  {
+    "slug": "hillsboro-beach",
+    "name": "Hillsboro Beach",
+    "lat": 26.2939687,
+    "lon": -80.0789318
+  },
+  {
+    "slug": "hollywood",
+    "name": "Hollywood",
+    "lat": 26.0112014,
+    "lon": -80.1494901
+  },
+  {
+    "slug": "lauderdale-by-the-sea",
+    "name": "Lauderdale By The Sea",
+    "lat": 26.192028,
+    "lon": -80.0964326
+  },
+  {
+    "slug": "lauderdale-lakes",
+    "name": "Lauderdale Lakes",
+    "lat": 26.1667184,
+    "lon": -80.2085565
+  },
+  {
+    "slug": "lauderhill",
+    "name": "Lauderhill",
+    "lat": 26.1403635,
+    "lon": -80.2133808
+  },
+  {
+    "slug": "lazy-lake",
+    "name": "Lazy Lake",
+    "lat": 26.1561961,
+    "lon": -80.1447675
+  },
+  {
+    "slug": "lighthouse-point",
+    "name": "Lighthouse Point",
+    "lat": 26.275636,
+    "lon": -80.0872654
+  },
+  {
+    "slug": "margate",
+    "name": "Margate",
+    "lat": 26.2445263,
+    "lon": -80.206436
+  },
+  {
+    "slug": "miramar",
+    "name": "Miramar",
+    "lat": 25.9873137,
+    "lon": -80.2322706
+  },
+  {
+    "slug": "north-lauderdale",
+    "name": "North Lauderdale",
+    "lat": 26.217305,
+    "lon": -80.2258811
+  },
+  {
+    "slug": "oakland-park",
+    "name": "Oakland Park",
+    "lat": 26.1723065,
+    "lon": -80.1319893
+  },
+  {
+    "slug": "parkland",
+    "name": "Parkland",
+    "lat": 26.3100794,
+    "lon": -80.23727
+  },
+  {
+    "slug": "pembroke-park",
+    "name": "Pembroke Park",
+    "lat": 25.9878691,
+    "lon": -80.1747687
+  },
+  {
+    "slug": "pembroke-pines",
+    "name": "Pembroke Pines",
+    "lat": 26.0061943,
+    "lon": -80.2872086
+  },
+  {
+    "slug": "plantation",
+    "name": "Plantation",
+    "lat": 26.1275862,
+    "lon": -80.2331036
+  },
+  {
+    "slug": "pompano-beach",
+    "name": "Pompano Beach",
+    "lat": 26.2378597,
+    "lon": -80.1247667
+  },
+  {
+    "slug": "sea-ranch-lakes",
+    "name": "Sea Ranch Lakes",
+    "lat": 26.2008949,
+    "lon": -80.0981785
+  },
+  {
+    "slug": "southwest-ranches",
+    "name": "Southwest Ranches",
+    "lat": 26.0586543,
+    "lon": -80.3381531
+  },
+  {
+    "slug": "sunrise",
+    "name": "Sunrise",
+    "lat": 26.1666888,
+    "lon": -80.2787573
+  },
+  {
+    "slug": "tamarac",
+    "name": "Tamarac",
+    "lat": 26.2128609,
+    "lon": -80.2497707
+  },
+  {
+    "slug": "west-park",
+    "name": "West Park",
+    "lat": 25.984536,
+    "lon": -80.1989362
+  },
+  {
+    "slug": "weston",
+    "name": "Weston",
+    "lat": 26.1003392,
+    "lon": -80.399513
+  },
+  {
+    "slug": "wilton-manors",
+    "name": "Wilton Manors",
+    "lat": 26.1603626,
+    "lon": -80.138934
+  },
+  {
+    "slug": "atlantis",
+    "name": "Atlantis",
+    "lat": 26.5909025,
+    "lon": -80.1008762
+  },
+  {
+    "slug": "belle-glade",
+    "name": "Belle Glade",
+    "lat": 26.6845104,
+    "lon": -80.6675577
+  },
+  {
+    "slug": "boynton-beach",
+    "name": "Boynton Beach",
+    "lat": 26.5289139,
+    "lon": -80.058141
+  },
+  {
+    "slug": "briny-breezes",
+    "name": "Briny Breezes",
+    "lat": 26.5084054,
+    "lon": -80.0508748
+  },
+  {
+    "slug": "cloud-lake",
+    "name": "Cloud Lake",
+    "lat": 26.6747604,
+    "lon": -80.0734264
+  },
+  {
+    "slug": "delray-beach",
+    "name": "Delray Beach",
+    "lat": 26.4614625,
+    "lon": -80.0728201
+  },
+  {
+    "slug": "glen-ridge",
+    "name": "Glen Ridge",
+    "lat": 26.6695108,
+    "lon": -80.0742086
+  },
+  {
+    "slug": "golf",
+    "name": "Golf",
+    "lat": 26.5059992,
+    "lon": -80.1060218
+  },
+  {
+    "slug": "greenacres",
+    "name": "Greenacres",
+    "lat": 26.623679,
+    "lon": -80.1253213
+  },
+  {
+    "slug": "gulf-stream",
+    "name": "Gulf Stream",
+    "lat": 26.4936835,
+    "lon": -80.0550417
+  },
+  {
+    "slug": "haverhill",
+    "name": "Haverhill",
+    "lat": 26.6931716,
+    "lon": -80.1130257
+  },
+  {
+    "slug": "highland-beach",
+    "name": "Highland Beach",
+    "lat": 26.3995204,
+    "lon": -80.0655977
+  },
+  {
+    "slug": "hypoluxo",
+    "name": "Hypoluxo",
+    "lat": 26.5665166,
+    "lon": -80.0535271
+  },
+  {
+    "slug": "juno-beach",
+    "name": "Juno Beach",
+    "lat": 26.8815475,
+    "lon": -80.0539253
+  },
+  {
+    "slug": "jupiter",
+    "name": "Jupiter",
+    "lat": 26.9342246,
+    "lon": -80.0942087
+  },
+  {
+    "slug": "jupiter-inlet-colony",
+    "name": "Jupiter Inlet Colony",
+    "lat": 26.9489465,
+    "lon": -80.0747637
+  },
+  {
+    "slug": "lake-clarke-shores",
+    "name": "Lake Clarke Shores",
+    "lat": 26.6453449,
+    "lon": -80.0758754
+  },
+  {
+    "slug": "lake-park",
+    "name": "Lake Park",
+    "lat": 26.8002153,
+    "lon": -80.0661631
+  },
+  {
+    "slug": "lake-worth-beach",
+    "name": "Lake Worth Beach",
+    "lat": 26.6159698,
+    "lon": -80.0569927
+  },
+  {
+    "slug": "lantana",
+    "name": "Lantana",
+    "lat": 26.5865308,
+    "lon": -80.052166
+  },
+  {
+    "slug": "loxahatchee-groves",
+    "name": "Loxahatchee Groves",
+    "lat": 26.6831222,
+    "lon": -80.2593689
+  },
+  {
+    "slug": "manalapan",
+    "name": "Manalapan",
+    "lat": 26.5692364,
+    "lon": -80.0447635
+  },
+  {
+    "slug": "mangonia-park",
+    "name": "Mangonia Park",
+    "lat": 26.760341,
+    "lon": -80.0736529
+  },
+  {
+    "slug": "ocean-ridge",
+    "name": "Ocean Ridge",
+    "lat": 26.5270157,
+    "lon": -80.0483747
+  },
+  {
+    "slug": "pahokee",
+    "name": "Pahokee",
+    "lat": 26.8200607,
+    "lon": -80.6653351
+  },
+  {
+    "slug": "palm-beach",
+    "name": "Palm Beach",
+    "lat": 26.6279798,
+    "lon": -80.4494174
+  },
+  {
+    "slug": "palm-beach-gardens",
+    "name": "Palm Beach Gardens",
+    "lat": 26.8233946,
+    "lon": -80.1386547
+  },
+  {
+    "slug": "palm-beach-shores",
+    "name": "Palm Beach Shores",
+    "lat": 26.7781183,
+    "lon": -80.0355962
+  },
+  {
+    "slug": "palm-springs",
+    "name": "Palm Springs",
+    "lat": 26.6359009,
+    "lon": -80.0961538
+  },
+  {
+    "slug": "riviera-beach",
+    "name": "Riviera Beach",
+    "lat": 26.784343,
+    "lon": -80.0650293
+  },
+  {
+    "slug": "royal-palm-beach",
+    "name": "Royal Palm Beach",
+    "lat": 26.7050822,
+    "lon": -80.2279519
+  },
+  {
+    "slug": "south-bay",
+    "name": "South Bay",
+    "lat": 26.6639559,
+    "lon": -80.7161701
+  },
+  {
+    "slug": "south-palm-beach",
+    "name": "South Palm Beach",
+    "lat": 26.588958,
+    "lon": -80.0386522
+  },
+  {
+    "slug": "tequesta",
+    "name": "Tequesta",
+    "lat": 26.9609367,
+    "lon": -80.089205
+  },
+  {
+    "slug": "wellington",
+    "name": "Wellington",
+    "lat": 26.6586779,
+    "lon": -80.2414357
+  },
+  {
+    "slug": "west-palm-beach",
+    "name": "West Palm Beach",
+    "lat": 26.715364,
+    "lon": -80.0532942
+  },
+  {
+    "slug": "westlake",
+    "name": "Westlake",
+    "lat": 26.7435883,
+    "lon": -80.30649
+  },
+  {
+    "slug": "stuart",
+    "name": "Stuart",
+    "lat": 27.197983,
+    "lon": -80.2519175
+  },
+  {
+    "slug": "sewalls-point",
+    "name": "Sewalls Point",
+    "lat": 27.1916932,
+    "lon": -80.1941223
+  },
+  {
+    "slug": "ocean-breeze",
+    "name": "Ocean Breeze",
+    "lat": 27.2410175,
+    "lon": -80.226505
+  },
+  {
+    "slug": "indiantown",
+    "name": "Indiantown",
+    "lat": 27.0273407,
+    "lon": -80.4820908
+  },
+  {
+    "slug": "jupiter-island",
+    "name": "Jupiter Island",
+    "lat": 27.03419,
+    "lon": -80.1035822
+  },
+  {
+    "slug": "port-st.-lucie",
+    "name": "Port St. Lucie",
+    "lat": 27.2939333,
+    "lon": -80.3503283
+  },
+  {
+    "slug": "fort-pierce",
+    "name": "Fort Pierce",
+    "lat": 27.4467056,
+    "lon": -80.3256056
+  },
+  {
+    "slug": "st.-lucie-village",
+    "name": "St. Lucie Village",
+    "lat": 27.4894819,
+    "lon": -80.3397727
+  },
+  {
+    "slug": "blog",
+    "name": "Blog",
+    "lat": 26.3587,
+    "lon": -80.0831
+  },
+  {
+    "slug": "deerfield-beach",
+    "name": "Deerfield Beach",
+    "lat": 26.318342,
+    "lon": -80.0996306
+  }
+]
