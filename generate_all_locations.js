@@ -116,6 +116,16 @@ for (const location of locations) {
     hubHtml = hubHtml.replace(/South Florida/g, location.name);
     hubHtml = hubHtml.replace(/Boca Raton/g, location.name);
     
+    // Dynamic Schema Localization
+    // Map Hillsboro Beach to the specific location name
+    hubHtml = hubHtml.replace(/"addressLocality":"Hillsboro Beach"/g, `"addressLocality":"${location.name}"`);
+    // Blank out the hardcoded zip code or replace it
+    hubHtml = hubHtml.replace(/"postalCode":"33062"/g, `""`);
+    // Inject dynamic GeoCoordinates
+    if (location.lat && location.lon) {
+        hubHtml = hubHtml.replace(/"addressCountry":"United States"}/g, `"addressCountry":"United States"},"geo":{"@type":"GeoCoordinates","latitude":${location.lat},"longitude":${location.lon}}`);
+    }
+
     hubHtml = hubHtml.replace(/<link rel="canonical" href=".*?" \/>/s, `<link rel="canonical" href="https://www.tropishinecleaning.com/${location.slug}/" />`);
     
     // Insulate Silo Links
@@ -140,6 +150,11 @@ for (const location of locations) {
 
     // Deep routing manipulation
     locDStr = locDStr.replace("const folderName = `${service.id}-" + location.slug + "`;", `const folderName = "${location.slug}/" + service.id;`);
+    
+    // Dynamically inject GeoCoordinates into the generated schema of the local services
+    if (location.lat && location.lon) {
+        locDStr = locDStr.replace(/"addressCountry": "US"/, `"addressCountry": "US"\n        },\n        "geo": {\n            "@type": "GeoCoordinates",\n            "latitude": ${location.lat},\n            "longitude": ${location.lon}`);
+    }
     
     // Depth 2 adjustments
     locDStr = locDStr.replace(`finalHtml = finalHtml.replace(/(src|href)="images\\//g, '$1="../images/');`, `finalHtml = finalHtml.replace(/(src|href)="images\\//g, '$1="../../images/');\n    finalHtml = finalHtml.replace(/(src|href)="\\.\\.\\/images\\//g, '$1="../../images/');\n    finalHtml = finalHtml.replace(/url\\('images\\//g, "url('../../images/");\n    finalHtml = finalHtml.replace(/url\\('\\.\\.\\/images\\//g, "url('../../images/");`);
@@ -179,6 +194,11 @@ for (const location of locations) {
     
     // Deep routing manipulation
     locCStr = locCStr.replace(/const folderPath = path\.join\(__dirname, page\.slug\);/, `const folderPath = path.join(__dirname, "${location.slug}", page.slug);`);
+    
+    // In case the core generator creates schemas, though unlikely
+    if (location.lat && location.lon) {
+        locCStr = locCStr.replace(/"addressCountry": "US"/, `"addressCountry": "US"\n        },\n        "geo": {\n            "@type": "GeoCoordinates",\n            "latitude": ${location.lat},\n            "longitude": ${location.lon}`);
+    }
 
     // Depth 2 adjustments
     locCStr = locCStr.replace(`pageHtml = pageHtml.replace(/(src|href)="images\\//g, '$1="../images/');`, `pageHtml = pageHtml.replace(/(src|href)="images\\//g, '$1="../../images/');\n    pageHtml = pageHtml.replace(/(src|href)="\\.\\.\\/images\\//g, '$1="../../images/');\n    pageHtml = pageHtml.replace(/url\\('images\\//g, "url('../../images/");\n    pageHtml = pageHtml.replace(/url\\('\\.\\.\\/images\\//g, "url('../../images/");`);

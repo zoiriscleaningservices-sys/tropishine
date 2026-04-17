@@ -74,7 +74,7 @@ coreRoutes.forEach(route => {
 // 2. Root Service Routes (Deerfield Beach Legacy Setup)
 services.forEach(service => {
     const route = `/${service}-deerfield-beach/`;
-    xml += `  <url>\n    <loc>${domain}${route}</loc>\n    <lastmod>${today}</lastmod>\n    <priority>1.0</priority>\n  </url>\n`;
+    xml += `  <url>\n    <loc>${domain}${route}</loc>\n    <lastmod>${today}</lastmod>\n    <priority>0.9</priority>\n  </url>\n`;
 });
 
 let siloCount = 0;
@@ -84,18 +84,18 @@ locations.forEach(location => {
     if (location === 'deerfield-beach') return;
 
     // Location Hub
-    xml += `  <url>\n    <loc>${domain}/${location}/</loc>\n    <lastmod>${today}</lastmod>\n    <priority>1.0</priority>\n  </url>\n`;
+    xml += `  <url>\n    <loc>${domain}/${location}/</loc>\n    <lastmod>${today}</lastmod>\n    <priority>0.9</priority>\n  </url>\n`;
     siloCount++;
     
     // Core routes inside Silo
     ["about-us", "gallery", "blog"].forEach(coreSlug => {
-        xml += `  <url>\n    <loc>${domain}/${location}/${coreSlug}/</loc>\n    <lastmod>${today}</lastmod>\n    <priority>1.0</priority>\n  </url>\n`;
+        xml += `  <url>\n    <loc>${domain}/${location}/${coreSlug}/</loc>\n    <lastmod>${today}</lastmod>\n    <priority>0.7</priority>\n  </url>\n`;
         siloCount++;
     });
 
     // Services inside Silo
     services.forEach(service => {
-        xml += `  <url>\n    <loc>${domain}/${location}/${service}/</loc>\n    <lastmod>${today}</lastmod>\n    <priority>1.0</priority>\n  </url>\n`;
+        xml += `  <url>\n    <loc>${domain}/${location}/${service}/</loc>\n    <lastmod>${today}</lastmod>\n    <priority>0.8</priority>\n  </url>\n`;
         siloCount++;
     });
 });
