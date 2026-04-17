@@ -7,31 +7,9 @@ const today = new Date().toISOString().split('T')[0];
 const indexHtmlPath = path.join(__dirname, 'index.html');
 const indexHtml = fs.readFileSync(indexHtmlPath, 'utf8');
 
-// Ensure we only scan the nav header for locations to prevent snagging generic service buttons
-const megaMenuStart = indexHtml.indexOf('<!-- LOCATIONS DROPDOWN -->');
-const megaMenuEnd = indexHtml.indexOf('<!-- NEXT-GEN MOBILE NAVIGATION HUB -->');
-
-let megaMenuHtml = "";
-if (megaMenuStart !== -1 && megaMenuEnd !== -1) {
-    megaMenuHtml = indexHtml.slice(megaMenuStart, megaMenuEnd);
-} else {
-    console.error("Failed to extract mega menu!");
-    process.exit(1);
-}
-
-const locationRegex = /href="https:\/\/www\.tropishinecleaning\.com\/([^\/]+)\/"[^>]*>([^<]+)<\/a>/g;
-let match;
-const locationsMap = new Map();
-
-while ((match = locationRegex.exec(megaMenuHtml)) !== null) {
-    const slug = match[1].trim();
-    if (["about-us", "blogs", "gallery", "house-cleaning", "deep-cleaning"].includes(slug)) {
-        continue;
-    }
-    locationsMap.set(slug, true);
-}
-
-const locations = Array.from(locationsMap.keys());
+const locationsDbPath = path.join(__dirname, 'locations_db.json');
+const locationsDb = JSON.parse(fs.readFileSync(locationsDbPath, 'utf8'));
+const locations = locationsDb.map(loc => loc.slug);
 
 const coreRoutes = [
     "/",
