@@ -515,6 +515,9 @@ services.forEach(service => {
 
     let finalHtml = headAndNav + heroContent + bodyContent + lowerPage;
 
+    // Deep link nearby locations
+    finalHtml = finalHtml.replace(/href="https:\/\/www\.tropishinecleaning\.com\/([^\/]+)\/"([^>]+nearby-loc-link)/g, 'href="https://www.tropishinecleaning.com/$1/' + service.id + '/"$2');
+
     // Fix paths (since page is generated one level down from root)
     finalHtml = finalHtml.replace(/(src|href)="images\//g, '$1="../images/');
     finalHtml = finalHtml.replace(/(src|href)="hero-vid\//g, '$1="../hero-vid/');
@@ -539,3 +542,7 @@ services.forEach(service => {
 });
 
 console.log('All Boca Raton service pages generated successfully!');
+
+
+
+

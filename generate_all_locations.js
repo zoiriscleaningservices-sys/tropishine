@@ -1,4 +1,4 @@
-const fs = require('fs');
+﻿const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 
@@ -28,7 +28,7 @@ function getDistance(lat1, lon1, lat2, lon2) {
 // Generate Localized Dropdown HTML
 function getNearbyLocationsHtml(currentSlug) {
     const currentLoc = locations.find(l => l.slug === currentSlug);
-    if(!currentLoc || !currentLoc.lat) return ""; // fallback to empty if missing
+    if(!currentLoc || !currentLoc.lat) return null; // fallback to empty if missing
     
     // Sort all locations by distance to current
     let distances = locations.map(loc => {
@@ -42,7 +42,7 @@ function getNearbyLocationsHtml(currentSlug) {
     // Take 10 closest
     let closest = distances.slice(0, 10);
     
-    let html = `<!-- LOCATIONS DROPDOWN -->
+    let dtHtml = `<!-- LOCATIONS DROPDOWN -->
                 <div class="nav-item relative group py-4">
                     <button class="flex items-center gap-1.5 text-zinc-800 hover:text-sky-600 px-4 py-2 rounded-full hover:bg-sky-50 transition-colors nav-link-modern whitespace-nowrap">
                         Nearby Locations <i data-lucide="chevron-down"
@@ -51,22 +51,50 @@ function getNearbyLocationsHtml(currentSlug) {
                     <div class="dropdown-menu absolute top-full left-0 w-[400px] bg-white rounded-3xl shadow-2xl shadow-sky-900/10 border border-sky-100 p-6 mega-scroll"
                         style="max-height: 70vh; overflow-y: auto; right: -200px; left: auto;">
                         <div class="flex flex-col">
-                            <h4 class="text-[14px] font-black text-sky-600 uppercase tracking-widest mb-4 border-b border-sky-100 pb-3">Service Areas Near You</h4>
+                            <h4 class="text-[14px] font-black text-sky-600 uppercase tracking-widest mb-4 border-b border-sky-100 pb-3">Service Areas Near ${currentLoc.name}</h4>
                             <div class="grid grid-cols-2 gap-3">`;
     for(let loc of closest) {
-        html += `
+        dtHtml += `
                                 <a href="https://www.tropishinecleaning.com/${loc.slug}/"
-                                    class="text-[13px] text-zinc-950 font-black uppercase py-2 px-3 rounded-lg hover:bg-sky-50 transition-colors truncate"
+                                    class="nearby-loc-link text-[13px] text-zinc-950 font-black uppercase py-2 px-3 rounded-lg hover:bg-sky-50 transition-colors truncate"
                                     title="${loc.name}">${loc.name}</a>`;
     }
-    html += `
+    dtHtml += `
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- END LOCATIONS DROPDOWN -->`;
-    return html;
+
+    let mobHtml = `<!-- LOCATIONS ACCORDION -->
+                <div class="mobile-accordion border border-sky-100/50 rounded-2xl overflow-hidden bg-white/50">
+                    <button
+                        class="mobile-accordion-header w-full p-4 flex items-center justify-between text-zinc-900 font-black text-sm uppercase tracking-widest bg-white hover:bg-sky-50/50 transition-colors">
+                        <span class="flex items-center gap-3">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-sky-500"></i>
+                            Nearby Locations
+                        </span>
+                        <i data-lucide="chevron-down"
+                            class="w-4 h-4 text-zinc-400 transition-transform duration-300"></i>
+                    </button>
+                    <div class="mobile-accordion-content bg-white/30 backdrop-blur-sm mega-scroll">
+                        <div class="p-3 space-y-1" id="mobile-locations-container">`;
+    for(let loc of closest) {
+        mobHtml += `
+                            <a href="https://www.tropishinecleaning.com/${loc.slug}/"
+                                class="nearby-loc-link mobile-item-card flex items-center gap-3 p-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-400/20 hover:bg-white/50">
+                                <span class="text-[10px] text-zinc-800 font-black uppercase tracking-wide">${loc.name}</span>
+                            </a>`;
+    }
+    mobHtml += `
+                        </div>
+                    </div>
+                </div>
+                <!-- END LOCATIONS ACCORDION -->`;
+
+    return { desktop: dtHtml, mobile: mobHtml };
 }
+
 
 console.log(`Loaded ${locations.length} Locations from JSON! Starting Mass V3 Generation Phase...`);
 
@@ -94,13 +122,21 @@ for (const location of locations) {
 
     let hubHtml = indexHtml;
     
-    // --- INJECT GEO-PROXIMITY SILO NAVIGATION ---
+        // --- INJECT GEO-PROXIMITY SILO NAVIGATION ---
     const localSiloNav = getNearbyLocationsHtml(location.slug);
     if(localSiloNav) {
-        const replaceStart = hubHtml.indexOf('<!-- LOCATIONS DROPDOWN -->');
-        const replaceEnd = hubHtml.indexOf('<!-- END LOCATIONS DROPDOWN -->');
-        if(replaceStart !== -1 && replaceEnd !== -1) {
-            hubHtml = hubHtml.slice(0, replaceStart) + localSiloNav + hubHtml.slice(replaceEnd);
+        // Desktop injection
+        const replaceStartDt = hubHtml.indexOf('<!-- LOCATIONS DROPDOWN -->');
+        const replaceEndDt = hubHtml.indexOf('<!-- END LOCATIONS DROPDOWN -->');
+        if(replaceStartDt !== -1 && replaceEndDt !== -1) {
+            hubHtml = hubHtml.slice(0, replaceStartDt) + localSiloNav.desktop + hubHtml.slice(replaceEndDt + '<!-- END LOCATIONS DROPDOWN -->'.length);
+        }
+
+        // Mobile injection
+        const replaceStartMob = hubHtml.indexOf('<!-- LOCATIONS ACCORDION -->');
+        const replaceEndMob = hubHtml.indexOf('<!-- END LOCATIONS ACCORDION -->');
+        if(replaceStartMob !== -1 && replaceEndMob !== -1) {
+            hubHtml = hubHtml.slice(0, replaceStartMob) + localSiloNav.mobile + hubHtml.slice(replaceEndMob + '<!-- END LOCATIONS ACCORDION -->'.length);
         }
     }
     
@@ -161,7 +197,7 @@ for (const location of locations) {
     locDStr = locDStr.replace(`finalHtml = finalHtml.replace(/(src|href)="hero-vid\\//g, '$1="../hero-vid/');`, `finalHtml = finalHtml.replace(/(src|href)="hero-vid\\//g, '$1="../../hero-vid/');\n    finalHtml = finalHtml.replace(/(src|href)="\\.\\.\\/hero-vid\\//g, '$1="../../hero-vid/');`);
     
     // Insulate Links dynamically within generated JS script
-    locDStr = locDStr.replace(/\/\/ Fix paths \(since page is generated one level down from root\)/g, `// Insulate Silo Links\n    finalHtml = finalHtml.replace(/href="https:\\\/\\\/www\\.tropishinecleaning\\.com\\\/([a-zA-Z0-9-]+)-boca-raton\\\/"/g, 'href="https://www.tropishinecleaning.com/${location.slug}/$1/"');\n    finalHtml = finalHtml.replace(/href="(?:https:\\\/\\\/www\\.tropishinecleaning\\.com)?\\\/(about-us|blog|gallery)\\\/"/g, 'href="https://www.tropishinecleaning.com/${location.slug}/$1/"');\n    finalHtml = finalHtml.replace(/<a href="https:\\\/\\\/www\\.tropishinecleaning\\.com\\\/"/g, '<a href="https://www.tropishinecleaning.com/${location.slug}/"');\n    // Fix paths (since page is generated one level down from root)`);
+    locDStr = locDStr.replace(/\/\/ Fix paths \(since page is generated one level down from root\)/g, `// Insulate Silo Links\n    finalHtml = finalHtml.replace(/href="https:\\\/\\\/www\\.tropishinecleaning\\.com\\\/([a-zA-Z0-9-]+)-boca-raton\\\/"/g, 'href="https://www.tropishinecleaning.com/${location.slug}/$1/"');\n    finalHtml = finalHtml.replace(/href="(?:https:\\\/\\\/www\\.tropishinecleaning\\.com)?\\\/(about-us|blog|gallery)\\\/"/g, 'href="https://www.tropishinecleaning.com/${location.slug}/$1/"');\n    finalHtml = finalHtml.replace(/<a href="https:\\\/\\\/www\\.tropishinecleaning\\.com\\\/"/g, '<a href="https://www.tropishinecleaning.com/${location.slug}/"');\n    finalHtml = finalHtml.replace(/href="https:\\\/\\\/www\\.tropishinecleaning\\.com\\\/([^\\/]+)\\\/"([^>]+nearby-loc-link)/g, 'href="https://www.tropishinecleaning.com/$1/' + service.id + '/"$2');\n    // Fix paths (since page is generated one level down from root)`);
 
     locDStr = locDStr.replace(/href="\.\.\/index\.html"/g, `href="https://www.tropishinecleaning.com/${location.slug}/"`);
     locDStr = locDStr.replace(/src="\.\.\/\$\{service\.img\}"/g, 'src="../../${service.img}"');
@@ -235,3 +271,8 @@ for (const location of locations) {
 
 console.log("\n===========================================");
 console.log("SUCCESS! Highly optimized V3 Local SEO silos deployed for 70+ locations (approx 1750+ localized HTML files).");
+
+
+
+
+
