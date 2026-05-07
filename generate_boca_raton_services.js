@@ -526,14 +526,29 @@ services.forEach(service => {
     // Form iFrame fix just in case
     finalHtml = finalHtml.replace(/<script src="https:\/\/widgets\.leadconnectorhq\.com\/loader\.js" data-resources-url="https:\/\/widgets\.leadconnectorhq\.com\/chat-widget\/loader\.js"><\/script>/g, '<script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"></script>');
 
-    // Replace SEO tags
+    // Fix all SEO meta tags for this specific page
+    const pageUrl = `https://www.tropishinecleaning.com/${folderName}/`;
+
     finalHtml = finalHtml.replace(/<title>.*?<\/title>/s, `<title>${titleStr}</title>`);
-    finalHtml = finalHtml.replace(/<meta name="description" content=".*?">/s, `<meta name="description" content="${metaDesc}">`);
-    
-    // Inject correct UNIQUE Canonical to prevent duplicate content penalty
-    finalHtml = finalHtml.replace(/<link rel="canonical" href="[^"]*" \/>/, `<link rel="canonical" href="https://www.tropishinecleaning.com/${folderName}/" />`);
-    
-    // Replace schema script for business name
+    finalHtml = finalHtml.replace(/<meta name="description"[\s\S]*?content="[^"]*"\s*\/>/, `<meta name="description" content="${metaDesc}" />`);
+    finalHtml = finalHtml.replace(/<link rel="canonical" href="[^"]*"\s*\/>/, `<link rel="canonical" href="${pageUrl}" />`);
+
+    // Fix OG tags to point to this page (not homepage)
+    finalHtml = finalHtml.replace(/<meta property="og:title" content="[^"]*"\s*\/>/, `<meta property="og:title" content="${titleStr}" />`);
+    finalHtml = finalHtml.replace(/<meta property="og:description"[\s\S]*?content="[^"]*"\s*\/>/, `<meta property="og:description" content="${metaDesc}" />`);
+    finalHtml = finalHtml.replace(/<meta property="og:url" content="[^"]*"\s*\/>/, `<meta property="og:url" content="${pageUrl}" />`);
+    finalHtml = finalHtml.replace(/<meta property="og:updated_time" content="[^"]*"\s*\/>/, `<meta property="og:updated_time" content="${new Date().toISOString()}" />`);
+    finalHtml = finalHtml.replace(/<meta property="article:modified_time" content="[^"]*"\s*\/>/, `<meta property="article:modified_time" content="${new Date().toISOString()}" />`);
+
+    // Fix Twitter card tags
+    finalHtml = finalHtml.replace(/<meta name="twitter:title" content="[^"]*"\s*\/>/, `<meta name="twitter:title" content="${titleStr}" />`);
+    finalHtml = finalHtml.replace(/<meta name="twitter:description"[\s\S]*?content="[^"]*"\s*\/>/, `<meta name="twitter:description" content="${metaDesc}" />`);
+
+    // Fix Rank Math schema — update WebPage @id and url to this page's URL (not homepage)
+    finalHtml = finalHtml.replace(/"@id":"https:\/\/www\.tropishinecleaning\.com\/#webpage"/, `"@id":"${pageUrl}#webpage"`);
+    finalHtml = finalHtml.replace(/"url":"https:\/\/www\.tropishinecleaning\.com\/","name":"Cleaning Services/, `"url":"${pageUrl}","name":"${service.title} in Boca Raton`);
+
+    // Replace schema business name
     finalHtml = finalHtml.replace(/"name": "Tropishine Cleaning"/, `"name": "${service.title} Boca Raton - Tropishine Cleaning"`);
 
     const filePath = path.join(folderPath, 'index.html');
